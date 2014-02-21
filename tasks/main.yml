@@ -1,0 +1,49 @@
+---
+# Defines tasks to install and configure Denyhosts
+
+- name: Include the OS specific varibles
+  include_vars: '{{ ansible_os_family }}.yml'
+  tags:
+    - common
+    - denyhosts
+
+- name: Install packages for Debian derivatives
+  apt: >
+    pkg={{ item }}
+    update_cache=yes
+    state=latest
+  with_items: denyhosts_packages
+  when: ansible_os_family == 'Debian'
+  tags:
+    - common
+    - denyhosts
+
+- name: Write denyhosts configuration template
+  template: >
+    src=etc-denyhosts-conf.j2
+    dest=/etc/denyhosts.conf
+    mode=0644 owner=root group=root
+    backup=yes
+  notify:
+    - restart denyhosts
+  tags:
+    - common
+    - denyhosts
+
+- name: Set always allowed hosts
+  # below is defined on a single line because of YAML parsing issues with ":"
+  lineinfile: 'dest=/etc/hosts.allow regexp="^ALL: {{ item }}" line="ALL: {{ item }}" state=present'
+  with_items: denyhosts_always_allow
+  when: denyhosts_always_allow is defined
+  tags:
+    - common
+    - denyhosts
+
+- name: Start denyhosts on server boot
+  service: >
+    name={{ denyhosts_service }}
+    state=started
+    enabled=yes
+  tags:
+    - common
+    - denyhosts

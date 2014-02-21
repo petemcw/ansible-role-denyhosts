@@ -1,0 +1,19 @@
+---
+# Handlers for Denyhosts notifications.
+
+- name: stop denyhosts
+  service: >
+    name={{ denyhosts_service }}
+    state=stopped
+
+- name: start denyhosts
+  service: >
+    name={{ denyhosts_service }}
+    state=started
+    enabled=yes
+
+- name: restart denyhosts
+  service: >
+    name={{ denyhosts_service }}
+    state=restarted
+    enabled=yes

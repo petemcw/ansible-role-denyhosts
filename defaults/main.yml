@@ -1,0 +1,45 @@
+---
+# The variables file used for Denyhosts playbooks.
+# If not overriden in inventory or as a parameter, this is the value that will be used
+
+denyhosts_always_allow: []
+denyhosts_secure_log: '/var/log/auth.log'
+denyhosts_hosts_deny: '/etc/hosts.deny'
+denyhosts_purge_deny: ''
+denyhosts_purge_threshold: 0
+denyhosts_block_service: 'sshd'
+denyhosts_deny_threshold_invalid: 5
+denyhosts_deny_threshold_valid: 10
+denyhosts_deny_threshold_root: 1
+denyhosts_deny_threshold_restricted: 1
+denyhosts_work_dir: '/var/lib/denyhosts'
+denyhosts_suspicious_login_report_allowed_hosts: 'YES'
+denyhosts_hostname_lookup: 'YES'
+denyhosts_lock_file: '/run/denyhosts.pid'
+denyhosts_admin_email: 'root@localhost'
+denyhosts_smtp_host: 'localhost'
+denyhosts_smtp_port: 25
+denyhosts_smtp_from: 'DenyHosts <nobody@localhost>'
+denyhosts_smtp_subject: 'DenyHosts Report'
+denyhosts_smtp_date_format: '%a, %d %b %Y %H:%M:%S %z'
+denyhosts_syslog_report: 'NO'
+denyhosts_allowed_hosts_hostname_lookup: 'NO'
+denyhosts_age_reset_valid: '5d'
+denyhosts_age_reset_root: '25d'
+denyhosts_age_reset_restricted: '25d'
+denyhosts_age_reset_invalid: '10d'
+denyhosts_reset_on_success: 'YES'
+denyhosts_plugin_deny: false
+denyhosts_plugin_purge: false
+denyhosts_userdef_failed_entry_regex: false
+denyhosts_daemon_log: '/var/log/denyhosts'
+denyhosts_daemon_log_time_format: false
+denyhosts_daemon_log_message_format: '%(asctime)s - %(name)-12s: %(levelname)-8s %(message)s'
+denyhosts_daemon_sleep: '30s'
+denyhosts_daemon_purge: '1h'
+denyhosts_enable_sync: false
+denyhosts_sync_interval: '1h'
+denyhosts_sync_upload: 'YES'
+denyhosts_sync_download: 'YES'
+denyhosts_sync_download_threshold: 3
+denyhosts_sync_download_resiliency: '5h'
