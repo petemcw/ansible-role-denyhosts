@@ -1,10 +1,12 @@
 # Denyhosts Role for Ansible
 
-This role installs [DenyHosts](http://denyhosts.sourceforge.net/) is a python program that automatically blocks SSH attacks by adding entries to `/etc/hosts.deny`.
+This role installs [DenyHosts](http://denyhosts.sourceforge.net/) is a python
+program that automatically blocks SSH attacks by adding entries to `/etc/hosts.deny`.
 
 ## Requirements
 
-This role requires [Ansible](http://www.ansibleworks.com/) version 1.4 or higher and the Debian/Ubuntu platform.
+This role requires [Ansible](http://www.ansibleworks.com/) version 1.4 or higher
+and the Debian/Ubuntu platform.
 
 ## Role Variables
 
@@ -143,7 +145,7 @@ denyhosts_sync_download_resiliency: '5h'
     ```yaml
     ---
     # This playbook installs DenyHosts
-    
+
     - name: Apply DenyHosts to all nodes
       hosts: all
       roles:
@@ -155,7 +157,7 @@ denyhosts_sync_download_resiliency: '5h'
     ```yaml
     ---
     # This playbook installs DenyHosts
-    
+
     - name: Apply DenyHosts to all nodes
       hosts: all
       roles:
