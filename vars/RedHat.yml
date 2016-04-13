@@ -1,0 +1,8 @@
+---
+# Defines variables for Enterprise Linux 
+
+denyhosts_service: 'denyhosts'
+denyhosts_packages:
+  - 'denyhosts'
+denyhosts_lock_file: '/var/lock/subsys/denyhosts'
+denyhosts_secure_log: '/var/log/secure'
