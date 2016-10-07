@@ -12,7 +12,7 @@
     pkg={{ item }}
     update_cache=yes
     state=latest
-  with_items: denyhosts_packages
+  with_items: "{{ denyhosts_packages }}"
   when: ansible_os_family == 'Debian'
   tags:
     - common
@@ -23,7 +23,7 @@
     name={{ item }}
     update_cache=yes
     state=latest
-  with_items: denyhosts_packages
+  with_items: "{{ denyhosts_packages }}"
   when: ansible_os_family == 'RedHat'
   tags:
     - common
