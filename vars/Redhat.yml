@@ -1,0 +1,6 @@
+---
+# Defines variables for Debian/Ubuntu
+
+denyhosts_service: 'denyhosts'
+denyhosts_packages:
+  - 'denyhosts'
