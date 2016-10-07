@@ -18,6 +18,17 @@
     - common
     - denyhosts
 
+- name: Install packages for Redhat derivatives
+  yum: >
+    name={{ item }}
+    update_cache=yes
+    state=latest
+  with_items: denyhosts_packages
+  when: ansible_os_family == 'Redhat'
+  tags:
+    - common
+    - denyhosts
+
 - name: Write denyhosts configuration template
   template: >
     src=etc-denyhosts-conf.j2
