@@ -24,7 +24,7 @@
     update_cache=yes
     state=latest
   with_items: denyhosts_packages
-  when: ansible_os_family == 'Redhat'
+  when: ansible_os_family == 'RedHat'
   tags:
     - common
     - denyhosts
