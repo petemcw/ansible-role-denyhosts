@@ -44,7 +44,7 @@
 - name: Set always allowed hosts
   # below is defined on a single line because of YAML parsing issues with ":"
   lineinfile: 'dest=/etc/hosts.allow regexp="^ALL: {{ item }}" line="ALL: {{ item }}" state=present'
-  with_items: denyhosts_always_allow
+  with_items: "{{denyhosts_always_allow}}"
   when: denyhosts_always_allow is defined
   tags:
     - common
